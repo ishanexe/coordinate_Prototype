@@ -54,7 +54,7 @@ function setTarget(lat,lon,name="Manual target") {
 function selectSaved(i) { const s=saved[i]; if(s) setTarget(s.lat,s.lon,s.name); }
 function updateResults() {
   if(!current || !target) return;
-  const enu=localEN( U(target,current), current ); // target relative to current
+  const enu = localENU(target, current); // target relative to current
   const d=haversine(current,target), b=bearing(current,target);
   $("eastDiff").textContent=fmt(enu.east);
   $("northDiff").textContent=fmt(enu.north);
